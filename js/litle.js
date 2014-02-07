@@ -22,7 +22,7 @@ var litleFunctions = {
     timeoutOnLitle: function () {
         var $responseOutput = $("<pre/>").text("API Unavailable - Timeout");
     
-        $(".api-response").append($responseOutput).show();
+        $(".api-response").prepend($responseOutput).show();
     
         return false;
     },
@@ -32,7 +32,7 @@ var litleFunctions = {
 
         // Pretty print the JSON and display it.
         var $responseOutput = $("<pre/>").text(JSON.stringify(response, undefined, 2));
-        $(".api-response").append($responseOutput).show();
+        $(".api-response").prepend($responseOutput).show();
 
         return false;
     },
