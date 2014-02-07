@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PayPage Example</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/paypage.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container form-payment">
+        <form role="form">
+            <h2 class="form-payment-heading">Payment Details</h2>
+
+            <input id="card-number" type="text" class="form-control first" placeholder="Card Number">
+            <input id="cvv2" type="text" class="form-control last" placeholder="CVV2 Code">
+
+            <!-- Litle Fields -->
+            <input type="hidden" id="request__paypageId" name="request__paypageId" value="DE2aVTtjkmvWg6pk"/>
+            <input type="hidden" id="request__merchantTxnId" name="request__merchantTxnId" value=""/>
+            <input type="hidden" id="request__orderId" name="request__orderId" value=""/>
+            <input type="hidden" id="request__reportGroup" name="request__reportGroup" value="n/a"/>
+
+            <input type="hidden" id="response__paypageRegistrationId" name="response__paypageRegistrationId" readOnly="true" value=""/>
+            <input type="hidden" id="response__bin" name="response__bin" readOnly="true"/>
+            <input type="hidden" id="response__code" name="response__code" readOnly="true"/>
+            <input type="hidden" id="response__message" name="response__message" readOnly="true"/>
+            <input type="hidden" id="response__responseTime" name="response__responseTime" readOnly="true"/>
+            <input type="hidden" id="response__type" name="response__type" readOnly="true"/>
+            <input type="hidden" id="response__litleTxnId" name="response__litleTxnId" readOnly="true"/>
+
+            <button id="submit-payment" class="btn btn-lg btn-primary btn-block" type="submit">Submit Payment</button>
+        </form>
+
+        <div class="api-response">
+            <h2>API Responses</h2>
+        </div>
+    </div>
+
+    <!-- JS at the bottom for faster page load -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://request-prelive.np-securepaypage-litle.com/LitlePayPage/litle-api2.js"></script>
+    <script src="js/litle.js"></script>
+</body>
+</html>
