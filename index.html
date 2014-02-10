@@ -11,17 +11,9 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/paypage.css" rel="stylesheet">
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.base64.js"></script>
-    <script src="https://request-prelive.np-securepaypage-litle.com/LitlePayPage/litle-api2.js"></script>
-    <script src="js/litle.js"></script>
 </head>
 
 <body>
-
-
-
     <div class="container form-payment">
         <form role="form">
             <h2>Payment Details</h2>
@@ -47,52 +39,56 @@
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Bin</label>
+                <label for="bin">Bin</label>
                 <input type="text" class="form-control" id="bin" name="bin" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Response Code</label>
+                <label for="response__code">Response Code</label>
                 <input type="text" class="form-control" id="response__code" name="response__code" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Response Time</label>
+                <label for="response__responseTime">Response Time</label>
                 <input type="text" class="form-control" id="response__responseTime" name="response__responseTime" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Response Message</label>
+                <label for="response__message">Response Message</label>
                 <input type="text" class="form-control" id="response__message" name="response__message" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Response Type</label>
+                <label for="response__type">Response Type</label>
                 <input type="text" class="form-control" id="response__type" name="response__type" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Litle Transaction ID</label>
+                <label for="response__litleTxnId">Litle Transaction ID</label>
                 <input type="text" class="form-control" id="response__litleTxnId" name="response__litleTxnId" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Merchant Transaction ID</label>
+                <label for="response__merchantTxnId">Merchant Transaction ID</label>
                 <input type="text"  class="form-control" id="response__merchantTxnId" name="response__merchantTxnId" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Order ID</label>
+                <label for="response__orderId">Order ID</label>
                 <input type="text" class="form-control" id="response__orderId" name="response__orderId" readonly="true">
             </div>
 
             <div class="form-group">
-                <label for="paypageRegistrationId">Report Group</label>
+                <label for="response__reportGroup">Report Group</label>
                 <input type="text" class="form-control" id="response__reportGroup" name="response__reportGroup" readonly="true">
             </div>
         </form>
     </div>
 
     <!-- JS at the bottom for faster page load -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.base64.js"></script>
+    <script src="https://request-prelive.np-securepaypage-litle.com/LitlePayPage/litle-api2.js"></script>
+    <script src="js/litle.js"></script>
 </body>
 </html>
