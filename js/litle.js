@@ -1,5 +1,26 @@
 // Litle PayPage Stuff
 
+function convertHexUUIDToB64 (UUID) {
+    function packHStar (bytes) {
+        var word, result = '';
+
+        for (i = 0; i < bytes.length; i += 2) {
+            word = bytes[i];
+            if (((i + 1) >= bytes.length) || typeof bytes[i + 1] === 'undefined') {
+                word += '0';
+            } else {
+                word += bytes[i + 1];
+            }
+            result += String.fromCharCode(parseInt(word, 16));
+        }
+
+        return result;
+    }
+
+    return $.base64('btoa', packHStar(
+        UUID.replace(/-/g, "").toLowerCase()
+    ));
+}
 
 var litleFunctions = {
     setLitleResponseFields: function (response) {
@@ -16,7 +37,9 @@ var litleFunctions = {
            return (((1+Math.random())*0x10000)|0).toString(16).substring(1).toUpperCase();
         };
 
-        return (r4()+r4()+"-"+r4()+"-"+r4()+"-"+r4()+"-"+r4()+r4()+r4());
+        var UUID = (r4()+r4()+"-"+r4()+"-"+r4()+"-"+r4()+"-"+r4()+r4()+r4());
+
+        return convertHexUUIDToB64(UUID);
     },
 
     timeoutOnLitle: function () {
@@ -45,48 +68,76 @@ var litleFunctions = {
 }
 
 
-// The acutal binding to the submit function
-$("#submit-payment").click(function() {
-
-    if (typeof new LitlePayPage() !== "object") {
-        litleFunctions.logResponse("API Unavailable");
-
-        return false;
-    }
-
-    // Normally this data is provided by our API, generate random GUIDs for this minimal testcase
-    $("#request__orderId").val( litleFunctions.generateOrderID() );
-    $("#request__merchantTxnId").val( litleFunctions.generateOrderID() );
 
 
-    // Clear anything that may be in the form fields
-    litleFunctions.setLitleResponseFields({
-        "response": "",
-        "message": ""
-    });
 
-    // Setup the request
-    var litleRequest = {
-        "paypageId":    document.getElementById("request__paypageId").value,
-        "reportGroup":  document.getElementById("request__reportGroup").value,
-        "orderId":      document.getElementById("request__orderId").value,
-        "id":           document.getElementById("request__merchantTxnId").value,
-        "url":          "https://request-prelive.np-securepaypage-litle.com"
-    };
 
-    // Get the data from the form fields. Note we are using browser native selectors
-    // Litle API requires the element directly, not the value, and not a jQuery object
-    var formFields = {
-        "accountNum":             document.getElementById("card-number"),
-        "cvv2":                   document.getElementById("cvv2"),
-        "paypageRegistrationId":  document.getElementById("response__paypageRegistrationId"),
-        "bin":                    document.getElementById("response__bin")
-    };
 
-    new LitlePayPage().sendToLitle(
-        litleRequest, formFields, litleFunctions.submitAfterLitle, litleFunctions.logResponse, litleFunctions.timeoutOnLitle, 5000
-    );
+
+
+function setLitleResponseFields(response) {
+    document.getElementById('response__code').value = response.response;
+    document.getElementById('response__message').value = response.message;
+    document.getElementById('response__responseTime').value = response.responseTime;
+    document.getElementById('response__reportGroup').value = response.reportGroup;
+    document.getElementById('response__merchantTxnId').value = response.id;
+    document.getElementById('response__orderId').value = response.orderId;
+    document.getElementById('response__litleTxnId').value = response.litleTxnId;
+    document.getElementById('response__type').value = response.type;
+}
+
+function submitAfterLitle(response) {
+    setLitleResponseFields(response);
 
     return false;
-});
+}
 
+function onErrorAfterLitle(response) {
+    setLitleResponseFields(response);
+
+    return false;
+}
+
+
+$(document).ready(function() {
+    $("#submit-payment").click(function() {
+        if (typeof new LitlePayPage() !== "object") {
+            litleFunctions.logResponse("API Unavailable");
+
+            return false;
+        }
+
+        // Normally this data is provided by our API, generate random GUIDs for this minimal testcase
+        $("#request__orderId").val( litleFunctions.generateOrderID() );
+        $("#request__merchantTxnId").val( litleFunctions.generateOrderID() );
+
+        // Clear anything that may be in the form fields
+        setLitleResponseFields({
+            "response": "",
+            "message": ""
+        });
+
+        // Get the data from the form fields. Note we are using browser native selectors
+        // Litle API requires the element directly, not the value, and not a jQuery object
+        var formFields = {
+            "accountNum": document.getElementById('ccNum'),
+            "paypageRegistrationId": document.getElementById('paypageRegistrationId'),
+            "bin": document.getElementById('bin')
+        };
+
+        // Setup the request
+        var litleRequest = {
+            "paypageId": document.getElementById("request__paypageId").value,
+            "id": document.getElementById("request__merchantTxnId").value,
+            "orderId": document.getElementById("request__orderId").value,
+            "reportGroup": document.getElementById("request__reportGroup").value,
+            "url": 'https://request-prelive.np-securepaypage-litle.com'
+        };
+
+        new LitlePayPage().sendToLitle(
+            litleRequest, formFields, submitAfterLitle, onErrorAfterLitle, litleFunctions.timeoutOnLitle, 5000
+        );
+
+        return false;
+    });
+});
