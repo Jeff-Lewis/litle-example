@@ -39,3 +39,10 @@ button {
     margin: 20px 0;
 }
 
+
+/* Lower font size for the prettyprinted json */
+#response__rawJSON {
+    font-family: monospace;
+    font-size: 12px;
+    height: 260px;
+}
