@@ -1,12 +1,15 @@
 body {
     background-color: #eee;
+    padding-bottom: 20px;
 }
 
-form {
-    max-width: 500px;
-    margin: 40px auto;
+.payment-header {
+    margin-bottom: 35px;
 }
 
+.payment-section {
+    margin-bottom: 40px;
+}
 
 .form-control {
     position: relative;
@@ -14,8 +17,8 @@ form {
     height: auto;
     padding: 10px;
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /* Make sure the highlight is in front of other form fields */
@@ -35,6 +38,11 @@ input.last {
     border-top-right-radius: 0;
 }
 
+.form-control[readonly] {
+    font-family: monospace;
+    background-color: #f6f6f6;
+}
+
 button {
     margin: 20px 0;
 }
@@ -42,7 +50,12 @@ button {
 
 /* Lower font size for the prettyprinted json */
 #response__rawJSON {
-    font-family: monospace;
     font-size: 12px;
     height: 260px;
 }
+
+
+#paypageRegistrationId {
+    height: 128px;
+}
+

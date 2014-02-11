@@ -14,80 +14,92 @@
 </head>
 
 <body>
-    <div class="container form-payment">
-        <form role="form">
-            <h2>Payment Details</h2>
 
-            <input id="ccNum" type="text" class="form-control first"  size="20" placeholder="Card Number">
-            <input id="cvv2" type="text" class="form-control last" placeholder="CVV2 Code">
 
-            <!-- Litle Fields -->
-            <input type="hidden" id="request__paypageId"     name="request$paypageId" value="DE2aVTtjkmvWg6pk">
-            <input type="hidden" id="request__merchantTxnId" name="request$merchantTxnId" value="hIRnEXqS4xGiwDzmm4igWA==">
-            <input type="hidden" id="request__orderId"       name="request$orderId" value="hIRnEXqS4xGiwDzmm4igWA==">
-            <input type="hidden" id="request__reportGroup"   name="request$reportGroup" value="n/a">
 
-            <button id="submit-payment" class="btn btn-lg btn-primary btn-block" type="submit">Submit Payment</button>
-        </form>
+    <div class="container">
 
-        <form role="form">
-            <h2>API Response</h2>
 
-            <div class="form-group">
-                <label for="paypageRegistrationId">Paypage Registration ID</label>
-                <textarea class="form-control" id="paypageRegistrationId" name="paypageRegistrationId" readonly="true"></textarea>
+        <div class="row">
+            <div class="col-md-4 payment-section">
+                <h2 class="payment-header">Payment Details</h2>
+
+                <input id="ccNum" type="text" class="form-control first"  size="20" placeholder="Card Number">
+                <input id="cvv2" type="text" class="form-control last" placeholder="CVV2 Code">
+
+                <!-- Litle Fields -->
+                <input type="hidden" id="request__paypageId"     name="request$paypageId" value="DE2aVTtjkmvWg6pk">
+                <input type="hidden" id="request__merchantTxnId" name="request$merchantTxnId" value="hIRnEXqS4xGiwDzmm4igWA==">
+                <input type="hidden" id="request__orderId"       name="request$orderId" value="hIRnEXqS4xGiwDzmm4igWA==">
+                <input type="hidden" id="request__reportGroup"   name="request$reportGroup" value="n/a">
+
+                <button id="submit-payment" class="btn btn-lg btn-primary btn-block" type="submit">Submit Payment</button>
             </div>
 
-            <div class="form-group">
-                <label for="bin">Bin</label>
-                <input type="text" class="form-control" id="bin" name="bin" readonly="true">
-            </div>
+            <div class="col-md-8">
+                <h2>API Response</h2>
 
-            <div class="form-group">
-                <label for="response__code">Response Code</label>
-                <input type="text" class="form-control" id="response__code" name="response__code" readonly="true">
-            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="paypageRegistrationId">Paypage Registration ID</label>
+                            <textarea class="form-control" id="paypageRegistrationId" name="paypageRegistrationId" readonly="true"></textarea>
+                        </div>
 
-            <div class="form-group">
-                <label for="response__responseTime">Response Time</label>
-                <input type="text" class="form-control" id="response__responseTime" name="response__responseTime" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="bin">Bin</label>
+                            <input type="text" class="form-control" id="bin" name="bin" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__message">Response Message</label>
-                <input type="text" class="form-control" id="response__message" name="response__message" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="response__code">Response Code</label>
+                            <input type="text" class="form-control" id="response__code" name="response__code" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__type">Response Type</label>
-                <input type="text" class="form-control" id="response__type" name="response__type" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="response__responseTime">Response Time</label>
+                            <input type="text" class="form-control" id="response__responseTime" name="response__responseTime" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__litleTxnId">Litle Transaction ID</label>
-                <input type="text" class="form-control" id="response__litleTxnId" name="response__litleTxnId" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="response__message">Response Message</label>
+                            <input type="text" class="form-control" id="response__message" name="response__message" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__merchantTxnId">Merchant Transaction ID</label>
-                <input type="text"  class="form-control" id="response__merchantTxnId" name="response__merchantTxnId" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="response__type">Response Type</label>
+                            <input type="text" class="form-control" id="response__type" name="response__type" readonly="true">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="response__litleTxnId">Litle Transaction ID</label>
+                            <input type="text" class="form-control" id="response__litleTxnId" name="response__litleTxnId" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__orderId">Order ID</label>
-                <input type="text" class="form-control" id="response__orderId" name="response__orderId" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="response__merchantTxnId">Merchant Transaction ID</label>
+                            <input type="text"  class="form-control" id="response__merchantTxnId" name="response__merchantTxnId" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__reportGroup">Report Group</label>
-                <input type="text" class="form-control" id="response__reportGroup" name="response__reportGroup" readonly="true">
-            </div>
+                        <div class="form-group">
+                            <label for="response__orderId">Order ID</label>
+                            <input type="text" class="form-control" id="response__orderId" name="response__orderId" readonly="true">
+                        </div>
 
-            <div class="form-group">
-                <label for="response__rawJSON">Raw JSON</label>
-                <textarea class="form-control" id="response__rawJSON" name="response__rawJSON" readonly="true"></textarea>
+                        <div class="form-group">
+                            <label for="response__reportGroup">Report Group</label>
+                            <input type="text" class="form-control" id="response__reportGroup" name="response__reportGroup" readonly="true">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="response__rawJSON">Raw JSON</label>
+                            <textarea class="form-control" id="response__rawJSON" name="response__rawJSON" readonly="true"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <!-- JS at the bottom for faster page load -->
