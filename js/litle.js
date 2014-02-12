@@ -1,11 +1,12 @@
 // Litle PayPage Stuff
+"use strict";
 
 var litleFunctions = {
     convertHexUUIDToB64: function (UUID) {
         function packHStar (bytes) {
             var word, result = '';
 
-            for (i = 0; i < bytes.length; i += 2) {
+            for (var i = 0; i < bytes.length; i += 2) {
                 word = bytes[i];
                 if (((i + 1) >= bytes.length) || typeof bytes[i + 1] === 'undefined') {
                     word += '0';
