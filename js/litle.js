@@ -18,9 +18,9 @@ var litleFunctions = {
             return result;
         }
 
-        return $.base64('btoa', packHStar(
-            UUID.replace(/-/g, "").toLowerCase()
-        ));
+        return $.base64.encode(
+            packHStar(UUID.replace(/-/g, "").toLowerCase())
+        );
     },
 
     setLitleResponseFields: function (response) {
@@ -88,6 +88,7 @@ $(document).ready(function() {
         // Litle API requires the element directly, not the value, and not a jQuery object
         var formFields = {
             "accountNum": document.getElementById('ccNum'),
+            "cvv2": document.getElementById('cvv2'),
             "paypageRegistrationId": document.getElementById('paypageRegistrationId'),
             "bin": document.getElementById('bin')
         };
