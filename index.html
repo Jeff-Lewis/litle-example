@@ -15,11 +15,7 @@
 
 <body>
 
-
-
     <div class="container">
-
-
         <div class="row">
             <div class="col-md-4 payment-section">
                 <h2 class="payment-header">Payment Details</h2>
@@ -34,6 +30,68 @@
                 <input type="hidden" id="request__reportGroup"   name="request$reportGroup" value="n/a">
 
                 <button id="submit-payment" class="btn btn-lg btn-primary btn-block" type="submit">Submit Payment</button>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Issuer</th>
+                            <th>Card Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Visa</td>
+                            <td>4111111111111111</td>
+                        </tr>
+                        <tr>
+                            <td>Discover</td>
+                            <td>6011111111111117</td>
+                        </tr>
+                        <tr>
+                            <td>MasterCard</td>
+                            <td>5111111111111118</td>
+                        </tr>
+                        <tr>
+                            <td>American Express</td>
+                            <td>371111111111114</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Desired Response</th>
+                            <th>Card Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Approved</td>
+                            <td>4470330769941000</td>
+                        </tr>
+                        <tr>
+                            <td>Partially Approved</td>
+                            <td>4658512425423010</td>
+                        </tr>
+                        <tr>
+                            <td>Processing Network Unavailable</td>
+                            <td>4886883711815100</td>
+                        </tr>
+                        <tr>
+                            <td>Issuer Unavailable</td>
+                            <td>4215176886320101</td>
+                        </tr>
+                        <tr>
+                            <td>Re-submit Transaction</td>
+                            <td>4793258603663102</td>
+                        </tr>
+                        <tr>
+                            <td>Insufficient Funds</td>
+                            <td>4488282659650110</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="col-md-8">

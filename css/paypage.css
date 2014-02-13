@@ -47,6 +47,18 @@ button {
     margin: 20px 0;
 }
 
+/* List of example cards */
+table {
+    margin-top: 20px;
+}
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > td {
+    padding: 5px 0;
+}
+
+table td:nth-child(2) {
+    font-family: monospace;
+}
 
 /* Lower font size for the prettyprinted json */
 #response__rawJSON {
